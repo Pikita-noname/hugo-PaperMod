@@ -38,7 +38,7 @@
 </div>
 {{- end }}
 
-{{- $pages := union .RegularPages .Sections }}
+{{- $pages := where (union .RegularPages .Sections) "Params.hidden" "ne" true }}
 
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
